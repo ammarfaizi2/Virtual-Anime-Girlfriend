@@ -1,0 +1,14 @@
+{
+    "name": "ammarfaizi2/vag",
+    "description": "Virtual Anime Girlfriend",
+    "type": "project",
+    "license": "GNU",
+    "authors": [
+        {
+            "name": "Ammar Faizi",
+            "email": "ammarfaizi2@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
