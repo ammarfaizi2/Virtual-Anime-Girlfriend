@@ -8,11 +8,13 @@ return [
 	],
 
 	"bot_telegram" => [
+		"username" => "",
 		"token" => ""
 	],
 
-	"madeline_proto" => [
-
+	"bot_line" => [
+		"channel_secret" => "",
+		"channel_token" => ""
 	],
 
 	"live_notification" => [
