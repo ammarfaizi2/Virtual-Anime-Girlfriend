@@ -56,7 +56,7 @@ final class VagHandler
 						if (isset($data["body"]) && is_string($data["body"])) {
 							$start = microtime(true);
 							if (strtolower(substr($data["body"], 0, 3)) == "sh ") {
-								$data["body"] = substr($data["body"], 4);
+								$data["body"] = substr($data["body"], 3);
 								file_put_contents("/tmp/vag_exec.sh", "#!/bin/sh\n{$data["body"]}");
 								shell_exec("sudo chmod 777 /tmp/vag_exec.sh");
 								$resp = shell_exec("/tmp/vag_exec.sh 2>&1");
