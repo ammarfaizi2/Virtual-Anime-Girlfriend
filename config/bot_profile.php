@@ -2,12 +2,12 @@
 
 return [
 
-	"lang_1" => "id",
-	"lang_2" => "en",
-	"lang_3" => "jp",
+	"lang_1" => "ID",
+	"lang_2" => "EN",
+	"lang_3" => "JP",
 
 	"profile" => [
-		"first_name" => "",
+		"first_name" => "Maiya",
 		"last_name" => "",
 		"nickname" => "",
 		"short_nickname" => "",
@@ -42,7 +42,7 @@ return [
 			 *
 			 */
 			"07:00 AM - 10:00 AM" // working time
-		]
+		],
 
 		/**
 		 * 1 = on
