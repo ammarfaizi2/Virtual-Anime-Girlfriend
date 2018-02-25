@@ -36,9 +36,9 @@ final class VagHandler
 	public function run()
 	{
 		if (isset($_SERVER["argv"][1])) {
+			$fb = config("bot_profile.bot_facebook");
 			switch ($_SERVER["argv"][1]) {
 				case 'listen':
-						$fb = config("bot_profile.bot_facebook");
 						if (! array_search("--no-login", $_SERVER["argv"])) {
 							echo $cmd = "js ./vag.js login \"{$fb['email']}\" \"{$fb['password']}\"\n";
 							echo self::shell_exec($cmd);
@@ -51,10 +51,19 @@ final class VagHandler
 					break;
 				case 'facebook':
 					$data = $_SERVER["argv"][2];
-					file_put_contents("logs.txt", json_encode(json_decode(urldecode($data))), FILE_APPEND);
-					var_dump($data);
 					$data = json_decode(urldecode($data), true);
-					// var_dump($data);
+					if ($data["senderID"] != $fb["user_id"]) {
+						if (isset($data["body"]) && is_string($data["body"])) {
+							$start = microtime(true);
+							$this->vag = new Vag($this->app);
+							$this->vag->setInput($data["body"]);
+							$this->vag->exec();
+							$resp = $this->vag->getResponse();
+							echo json_encode(["send" => true, "response" => $resp."\n\n".("Exection time: ".(microtime(true) - $start)."\n\n")]);
+						} else {
+							echo json_encode(["send" => false]);
+						}
+					}
 					break;
 				default:
 					break;
