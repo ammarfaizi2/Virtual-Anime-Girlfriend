@@ -20,6 +20,19 @@ final class VagHandler
 		);
 	}
 
+	private function shell_exec($cmd)
+	{
+		while (@ ob_end_flush());
+		$proc = popen($cmd, 'r');
+		echo "\n";
+		while (!feof($proc))
+		{
+		    echo fread($proc, 4096);
+		    @ flush();
+		}
+		echo "\n";
+	}
+
 	public function run()
 	{
 		if (isset($_SERVER["argv"][1])) {
@@ -27,15 +40,18 @@ final class VagHandler
 				case 'listen':
 						$fb = config("bot_profile.bot_facebook");
 						if (! array_search("--no-login", $_SERVER["argv"])) {
-							echo shell_exec("js ./vag.js login \"{$fb['email']}\" \"{$fb['password']}\"");
+							echo $cmd = "js ./vag.js login \"{$fb['email']}\" \"{$fb['password']}\"\n";
+							echo self::shell_exec($cmd);
 						}
-						echo shell_exec("js ./vag.js listen \"".urlencode(json_encode([
+						echo $cmd = "js ./vag.js listen \"".urlencode(json_encode([
 							"listen_to" => $fb["listen_to"],
 							"bot_user_id" => $fb["user_id"]
-						]))."\"");
+						]))."\"\n";
+						echo self::shell_exec($cmd);
 					break;
 				case 'facebook':
 					$data = $_SERVER["argv"][2];
+					file_put_contents("logs.txt", json_encode(json_decode(urldecode($data))), FILE_APPEND);
 					var_dump($data);
 					$data = json_decode(urldecode($data), true);
 					// var_dump($data);
