@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Messages\Greetings;
+use App\Messages\Questions;
 use Core\Foundation\Application;
 
 /**
@@ -53,6 +54,14 @@ class AI
 
 		if ($this->greetings->isMatch()) {
 			$this->result = $this->greetings->get();
+			return;
+		}
+
+		$this->question = new Questions();
+		$this->question->setInput($this->vag->input);
+
+		if ($this->question->isMatch()) {
+			$this->result = $this->question->get();
 			return;
 		}
 	}

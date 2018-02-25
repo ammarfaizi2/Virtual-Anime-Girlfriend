@@ -42,8 +42,6 @@ class Greetings
 						]
 					]
 				],
-
-
 			"g2" => 
 				[
 					"tr" => "*",
@@ -71,8 +69,169 @@ class Greetings
 							["Ini dah malem perasaan :3", [":l=short_nickname"]]
 						]
 					]
-				]
-		];
+				],
+			"g3" => 
+				[
+					"tr" => "*",
+					"re" => ["/m(a|e)t.+(s|c)iang/i"],
+					"msg" => [
+						"0-11" => [
+							["Ini masih pagi :short_nickname", [":l=short_nickname"]],
+							["Belum siang :short_nickname, masih pagi :p", [":l=short_nickname"]],
+							["Masih pagi perasaan :3", [":l=short_nickname"]]
+						],
+						"12-15" => [
+							["Met siang :short_nickname", [":l=short_nickname"]],
+							["Met siang :short_nickname :v", [":l=short_nickname"]],
+							["Siang :short_nickname...", [":l=short_nickname"]],
+						],
+						"16-18" => [
+							["Dah sore :short_nickname!", [":l=short_nickname"]],
+							["Udah lumayan sore nih, bukan siang lagi", []],
+						],
+						"19-23" => [
+							["Dah malem ini mah"],
+							["Udah malem :short_nickname", [":l=short_nickname"]],
+							["dah malem :short_nickname, bobok gih.", [":l=short_nickname"]]
+						]
+					]
+				],
+			"g4" => 
+				[
+					"tr" => "*",
+					"re" => ["/^(s|c)iang$/i"],
+					"msg" => [
+						"0-11" => [
+							["Ini masih pagi :short_nickname", [":l=short_nickname"]],
+							["Belum siang :short_nickname, masih pagi :p", [":l=short_nickname"]],
+							["Masih pagi perasaan :3", [":l=short_nickname"]]
+						],
+						"12-15" => [
+							["Siang juga :short_nickname", [":l=short_nickname"]],
+							["Met siang :short_nickname :v", [":l=short_nickname"]],
+							["Siang :short_nickname...", [":l=short_nickname"]],
+						],
+						"16-18" => [
+							["Dah sore :short_nickname!", [":l=short_nickname"]],
+							["Dah sore", []],
+						],
+						"19-23" => [
+							["Ini udah malem"],
+							["Udah malem :short_nickname", [":l=short_nickname"]],
+							["dah malem :short_nickname, bobok gih.", [":l=short_nickname"]]
+						]
+					]
+				],
+			"g5" => 
+				[
+					"tr" => "*",
+					"re" => ["/m(a|e)t.+(s|c)ore/i"],
+					"msg" => [
+						"0-11" => [
+							["Ini masih pagi :short_nickname", [":l=short_nickname"]],
+							["Belum sore :short_nickname, masih pagi, hadeh parah...", [":l=short_nickname"]],
+							["Masih pagi perasaan ni y :short_nickname", [":l=short_nickname"]]
+						],
+						"12-15" => [
+							["Ini masih siang :short_nickname", [":l=short_nickname"]],
+							["Maseh siang :short_nickname :v", [":l=short_nickname"]],
+							["Siang ya :short_nickname...", [":l=short_nickname"]],
+						],
+						"16-18" => [
+							["Met sore :short_nickname!", [":l=short_nickname"]],
+							["Sore juga", []],
+							["Selamat sore juga", []]
+						],
+						"19-23" => [
+							["Dah malem ini mah"],
+							["Udah malem :short_nickname", [":l=short_nickname"]],
+							["dah malem :short_nickname, bobok gih.", [":l=short_nickname"]]
+						]
+					]
+				],
+			"g6" =>
+				[
+					"tr" => "*",
+					"re" => ["/^(s|c)ore$/i"],
+					"msg" => [
+						"0-11" => [
+							["Ini masih pagi :short_nickname", [":l=short_nickname"]],
+							["Belum sore :short_nickname, masih pagi, hadeh parah...", [":l=short_nickname"]],
+							["Masih pagi perasaan ni y :short_nickname", [":l=short_nickname"]]
+						],
+						"12-15" => [
+							["Ini masih siang :short_nickname", [":l=short_nickname"]],
+							["Maseh siang :short_nickname :v", [":l=short_nickname"]],
+							["Siang ya :short_nickname...", [":l=short_nickname"]],
+						],
+						"16-18" => [
+							["Sore :short_nickname!", [":l=short_nickname"]],
+							["Sore juga", []],
+							["Sore juga, tumben nyapa.", []],
+						],
+						"19-23" => [
+							["Dah malem ini mah"],
+							["Udah malem :short_nickname", [":l=short_nickname"]],
+							["dah malem :short_nickname, bobok gih.", [":l=short_nickname"]]
+						]
+					]
+				],
+			"g7" => 
+				[
+					"tr" => "*",
+					"re" => ["/m(a|e)t.+ma?l(a|e)?m/i"],
+					"msg" => [
+						"0-11" => [
+							["Ini masih pagi :short_nickname", [":l=short_nickname"]],
+							["Belum sore :short_nickname, masih pagi, hadeh parah...", [":l=short_nickname"]],
+							["Masih pagi perasaan ni y :short_nickname", [":l=short_nickname"]]
+						],
+						"12-15" => [
+							["Ini masih siang :short_nickname", [":l=short_nickname"]],
+							["Maseh siang :short_nickname :v", [":l=short_nickname"]],
+							["Siang ya :short_nickname...", [":l=short_nickname"]],
+						],
+						"16-18" => [
+							["Masih sore ini :short_nickname :3", [":l=short_nickname"]],
+							["Belum malem, masih jam sore ini.", []],
+							["Masih sore :short_nickname", [":l=short_nickname"]]
+						],
+						"19-23" => [
+							["Met malem juga :short_nickname", [":l=short_nickname"]],
+							["malem :short_nickname", [":l=short_nickname"]],
+							["malem :short_nickname, bobok gih.", [":l=short_nickname"]]
+						]
+					]
+				],
+			"g8" =>
+				[
+					"tr" => "*",
+					"re" => ["/^mal(a|e)m$/i"],
+					"msg" => [
+						"0-11" => [
+							["Ini masih pagi :short_nickname", [":l=short_nickname"]],
+							["Belum sore :short_nickname, masih pagi, hadeh parah...", [":l=short_nickname"]],
+							["Masih pagi perasaan ni y :short_nickname", [":l=short_nickname"]]
+						],
+						"12-15" => [
+							["Ini masih siang :short_nickname", [":l=short_nickname"]],
+							["Maseh siang :short_nickname :v", [":l=short_nickname"]],
+							["Siang ya :short_nickname...", [":l=short_nickname"]],
+						],
+						"16-18" => [
+							["Masih sore ini :short_nickname :3", [":l=short_nickname"]],
+							["Belum malem, masih jam sore ini.", []],
+							["Masih sore :short_nickname", [":l=short_nickname"]]
+						],
+						"19-23" => [
+							["Malem juga :short_nickname", [":l=short_nickname"]],
+							["malem :short_nickname", [":l=short_nickname"]],
+							["malem :short_nickname, bobok gih.", [":l=short_nickname"]],
+							["malem :short_nickname, buruan bobok gih.", [":l=short_nickname"]]
+						]
+					]
+				],
+			];
 	}
 
 	public function setInput($input)
