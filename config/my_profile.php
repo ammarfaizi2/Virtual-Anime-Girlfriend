@@ -12,8 +12,10 @@ return [
 	// optional
 	"short_nickname" => "Mar",
 
-	// https://www.facebook.com/ammarfaizi2
-	"facebook" => "ammarfaizi2",
+	"facebook" => [
+		"username" => "ammarfaizi2",
+		"user_id" => "100000590125569"
+	],
 
 	"line" => "",
 

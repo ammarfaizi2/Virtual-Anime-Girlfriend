@@ -16,6 +16,7 @@ return [
 	"bot_facebook" => [
 		"email" => "",
 		"password" => "",
+		"listen_to" => [config("my_profile.facebook.user_id")],
 		"connection" => "keep-alive"
 	],
 
