@@ -40,13 +40,15 @@ class AI
 	public function __construct(Application $app)
 	{
 		$this->app = $app;
-		$this->config = $this->app->singleton->get("config");
 		$this->vag = $this->app->singleton->get("vag");
 	}
 
+	/**
+	 * @return voi
+	 */
 	public function exec()
 	{
-		$this->greetings = new Greetings($this->config);
+		$this->greetings = new Greetings();
 		$this->greetings->setInput($this->vag->input);
 
 		if ($this->greetings->isMatch()) {
@@ -55,6 +57,9 @@ class AI
 		}
 	}
 
+	/**
+	 * @return mixed
+	 */
 	public function get()
 	{
 		return $this->result;

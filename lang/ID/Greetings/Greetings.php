@@ -20,9 +20,9 @@ class Greetings
 			"g1" => 
 				[
 					"tr" => "*",
-					"re" => ["/(sela)?(m(a|e)t.+)pagi?/i"],
+					"re" => ["/m(a|e)t.+pa?gi/i"],
 					"msg" => [
-						"6-11" => [
+						"0-11" => [
 							["Met pagi juga :short_nickname!", [":l=short_nickname"]],
 							["Pagi :short_nickname!", [":l=short_nickname"]],
 							["Pagi :short_nickname :v", [":l=short_nickname"]],
@@ -38,6 +38,37 @@ class Greetings
 						"19-23" => [
 							["Dah malem ini mah"],
 							["Udah malem :short_nickname", [":l=short_nickname"]],
+							["dah malem :short_nickname", [":l=short_nickname"]]
+						]
+					]
+				],
+
+
+			"g2" => 
+				[
+					"tr" => "*",
+					"re" => ["/^pa?gi$/"],
+					"msg" => [
+						"0-11" => [
+							["Pagi :short_nickname", [":l=short_nickname"]],
+							["Pagi...", []],
+							["Pagi juga :short_nickname", [":l=short_nickname"]],
+							["Pagi juga", []]
+						],
+						"12-15" => [
+							["Dah siang :short_nickname -_-+", [":l=short_nickname"]],
+							["Ini dah siang :short_nickname -__-+!", [":l=short_nickname"]],
+							["Dah siang :short_nickname :v", [":l=short_nickname"]]
+						],
+						"16-18" => [
+							["Udah sore njirr :v", []],
+							["Dah sore -_-", []],
+							["Udah sore :nickname!!", [":=nickname"]],
+						],
+						"19-23" => [
+							["Dah malem :short_nickname", [":l=short_nickname"]],
+							["Udah malem :short_nickname", [":l=short_nickname"]],
+							["Ini dah malem perasaan :3", [":l=short_nickname"]]
 						]
 					]
 				]

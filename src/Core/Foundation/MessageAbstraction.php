@@ -2,19 +2,12 @@
 
 namespace Core\Foundation;
 
-use Core\Support\Config;
-
 abstract class MessageAbstraction
 {
 	/**
 	 * @var string
 	 */
 	protected $input;
-
-	/**
-	 * @var string
-	 */
-	protected $config;
 
 	/**
 	 * @var mixed
@@ -27,9 +20,8 @@ abstract class MessageAbstraction
 	 * @param \Core\Support\Config
 	 * @return void
 	 */
-	final public function __construct(Config $config)
+	final public function __construct()
 	{
-		$this->config = $config;
 	}
 
 	/**
@@ -77,7 +69,9 @@ abstract class MessageAbstraction
 								case 'l':
 									$r = strtolower($r);
 									break;
-								
+								case 'u':
+									$r = strtoupper($r);
+									break;
 								default:
 									throw new Exception("Invalid parameter {$l}", 1);
 									break;
