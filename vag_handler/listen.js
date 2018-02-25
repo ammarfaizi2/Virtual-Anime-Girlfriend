@@ -22,6 +22,7 @@ module.exports = {
                     var child = exec('php vag facebook "'+encodeURIComponent(JSON.stringify(message))+'"',
                         function (error, stdout, stderr) {
                             var s = JSON.parse(decodeURIComponent(stdout));
+                            console.log(s);
                             if (s["send"] == true) {
                                 api.sendMessage(s["response"], message.threadID);
                             }

@@ -58,7 +58,7 @@ final class VagHandler
 							$this->vag = new Vag($this->app);
 							$this->vag->setInput($data["body"]);
 							$this->vag->exec();
-							$resp = $this->vag->getResponse();
+							$resp = json_encode($this->vag->getResponse());
 							echo json_encode(["send" => true, "response" => $resp."\n\n".("Exection time: ".(microtime(true) - $start)."\n\n")]);
 						} else {
 							echo json_encode(["send" => false]);
