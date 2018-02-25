@@ -20,7 +20,7 @@ class Questions
 			"q1" => 
 				[
 					"tr" => "*",
-					"re" => ["/jam\s(be?ra?(pa?)?)/", "/se?ka?ra?ng\sja?m\sbe?ra?(pa?)?/"],
+					"re" => ["/ja?m\s(be?ra?(pa?)?)/i", "/se?ka?ra?n?g\sja?m\sbe?ra?(pa?)?/"],
 					"msg" => [
 						"*" => [
 							["Sekarang jam ".date("h:i:s A")." :short_nickname", [":l=short_nickname"]],
