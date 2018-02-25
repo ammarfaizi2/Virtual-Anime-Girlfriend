@@ -1,5 +1,5 @@
 <?php
-
+$cred = include "bot.cred";
 return [
 
 	"lang_1" => "ID",
@@ -14,8 +14,9 @@ return [
 	],
 
 	"bot_facebook" => [
-		"email" => "",
-		"password" => "",
+		"email" => $cred["email"],
+		"password" => $cred["pass"],
+		"user_id" => $cred["user_id"],
 		"listen_to" => [config("my_profile.facebook.user_id")],
 		"connection" => "keep-alive"
 	],

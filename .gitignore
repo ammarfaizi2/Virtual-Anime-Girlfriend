@@ -1,2 +1,3 @@
+*.cred
 /vendor/
 /node_modules/
