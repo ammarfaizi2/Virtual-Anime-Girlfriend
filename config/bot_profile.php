@@ -1,6 +1,18 @@
 <?php
 
 return [
+
+	"lang_1" => "id",
+	"lang_2" => "en",
+	"lang_3" => "jp",
+
+	"profile" => [
+		"first_name" => "",
+		"last_name" => "",
+		"nickname" => "",
+		"short_nickname" => "",
+	],
+
 	"bot_facebook" => [
 		"email" => "",
 		"password" => "",
