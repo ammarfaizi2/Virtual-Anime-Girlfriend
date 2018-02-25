@@ -47,7 +47,7 @@ class Greetings
 			"g2" => 
 				[
 					"tr" => "*",
-					"re" => ["/^pa?gi$/"],
+					"re" => ["/^pa?gi$/i"],
 					"msg" => [
 						"0-11" => [
 							["Pagi :short_nickname", [":l=short_nickname"]],
@@ -135,7 +135,7 @@ class Greetings
 			$k = explode("-", $k);
 			if (count($k) === 2) {
 				if (in_array($now, range($k[0], $k[1]))) {
-					return $val[count($val) - 1];
+					return $val[rand(0, count($val) - 1)];
 				}
 			}
 		}
