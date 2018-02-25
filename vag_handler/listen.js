@@ -6,8 +6,8 @@ const login = require("facebook-chat-api");
 const exec = require('child_process').exec;
 
 module.exports = {
-    "listen": function (to) {
-        to = JSON.parse(to);
+    "listen": function (fb) {
+        fb = JSON.parse(fb);
         login({appState: JSON.parse(fs.readFileSync('storage/state/appstate.json', 'utf8'))}, (err, api) => {
             if(err) return console.error(err);
             console.log(to);
@@ -18,7 +18,7 @@ module.exports = {
 
             api.listen((err, message) => {
                 if(err) return console.error(err);
-                if (to.indexOf(message.threadID) != -1) {
+                if (fb["listen_to"].indexOf(message.threadID) != -1 && message.senderID != fb["bot_user_id"]) {
                     var child = exec('php vag facebook "'+encodeURIComponent(JSON.stringify(message))+'"',
                         function (error, stdout, stderr) {
                             console.log(stdout);

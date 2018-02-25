@@ -29,7 +29,10 @@ final class VagHandler
 						if (! array_search("--no-login", $_SERVER["argv"])) {
 							echo shell_exec("js ./vag.js login \"{$fb['email']}\" \"{$fb['password']}\"");
 						}
-						echo shell_exec("js ./vag.js listen \"".urlencode(json_encode($fb["listen_to"]))."\"");
+						echo shell_exec("js ./vag.js listen \"".urlencode(json_encode([
+							"listen_to" => $fb["listen_to"],
+							"bot_user_id" => $fb["user_id"]
+						]))."\"");
 					break;
 				case 'facebook':
 					$data = $_SERVER["argv"][2];
