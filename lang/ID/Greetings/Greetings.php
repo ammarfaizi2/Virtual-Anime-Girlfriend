@@ -306,6 +306,10 @@ class Greetings
 				if (in_array($now, range($k[0], $k[1]))) {
 					return $val[rand(0, count($val) - 1)];
 				}
+			} elseif ($k[0] === "*") {
+				if (in_array($now, range($k[0], $k[1]))) {
+					return $val[rand(0, count($val) - 1)];
+				}
 			}
 		}
 	}

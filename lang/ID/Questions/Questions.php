@@ -119,11 +119,12 @@ class Questions
 	{
 		$now = (int)date("H");
 		foreach ($resp as $k => $val) {
-			if ($k == "*") {
-				return $val[rand(0, count($val) - 1)];
-			}
 			$k = explode("-", $k);
 			if (count($k) === 2) {
+				if (in_array($now, range($k[0], $k[1]))) {
+					return $val[rand(0, count($val) - 1)];
+				}
+			} elseif ($k[0] === "*") {
 				if (in_array($now, range($k[0], $k[1]))) {
 					return $val[rand(0, count($val) - 1)];
 				}
