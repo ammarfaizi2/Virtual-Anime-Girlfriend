@@ -25,8 +25,7 @@ final class VagHandler
 		while (@ ob_end_flush());
 		$proc = popen($cmd, 'r');
 		echo "\n";
-		while (!feof($proc))
-		{
+		while (!feof($proc)) {
 		    echo fread($proc, 4096);
 		    @ flush();
 		}
@@ -39,7 +38,7 @@ final class VagHandler
 			$fb = config("bot_profile.bot_facebook");
 			switch ($_SERVER["argv"][1]) {
 				case 'listen':
-						if (! array_search("--no-login", $_SERVER["argv"])) {
+						if (array_search("--no-login", $_SERVER["argv"]) !== false) {
 							echo $cmd = "js ./vag.js login \"{$fb['email']}\" \"{$fb['password']}\"\n";
 							echo self::shell_exec($cmd);
 						}

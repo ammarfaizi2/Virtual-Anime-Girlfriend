@@ -231,6 +231,16 @@ class Greetings
 						]
 					]
 				],
+			"g9" =>
+				[
+					"tr" => "*",
+					"re" => ["/^ha?lo$/i", "/^ha?lo\s.{3,10}/i"],
+					"msg" => [
+						"*" => [
+							["Halo juga :short_nickname", [":l=short_nickname"]]
+						]
+					]
+				]
 			];
 	}
 

@@ -11,6 +11,8 @@ module.exports = {
         login({appState: JSON.parse(fs.readFileSync('storage/state/appstate.json', 'utf8'))}, (err, api) => {
             if(err) return console.error(err);
             console.log(fb);
+
+            // debug only
             // api.setOptions({
             //     selfListen: true,
             //     logLevel: "silent"
