@@ -42,7 +42,7 @@ final class VagHandler
 							echo $cmd = "js ./vag.js login \"{$fb['email']}\" \"{$fb['password']}\"\n";
 							echo self::shell_exec($cmd);
 						}
-						echo $cmd = "js ./vag.js listen \"".urlencode(json_encode([
+						echo $cmd = "js ./vag.js listen \"".rawurlencode(json_encode([
 							"listen_to" => $fb["listen_to"],
 							"bot_user_id" => $fb["user_id"]
 						]))."\"\n";

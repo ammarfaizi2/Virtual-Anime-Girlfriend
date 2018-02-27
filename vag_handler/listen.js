@@ -23,10 +23,15 @@ module.exports = {
                 if (fb["listen_to"].indexOf(message.threadID) != -1 && message.senderID != fb["bot_user_id"]) {
                     var child = exec('php vag facebook "'+encodeURIComponent(JSON.stringify(message))+'"',
                         function (error, stdout, stderr) {
-                            var s = JSON.parse(decodeURIComponent(stdout));
-                            console.log(s);
-                            if (s["send"] == true) {
-                                api.sendMessage(s["response"], message.threadID);
+                            try {
+                                var s = JSON.parse(decodeURIComponent(stdout));
+                                console.log(s);
+                                if (s["send"] == true) {
+                                    api.sendMessage(s["response"], message.threadID);
+                                }
+                            } catch (e) {
+                                console.log("There was an error: " + e.message);
+                                api.sendMessage(e.message, message.threadID);
                             }
                     });
                 }
