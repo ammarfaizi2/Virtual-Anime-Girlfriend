@@ -21,23 +21,46 @@ class Questions
 			"q1" => 
 				[
 					"tr" => "*",
-					"re" => ["/what\s{3,}ti?me(\sis (it)?)?/i"],
+					"re" => ["/^((wh)a?t)\s{1,3}time\s?(is\s(it)?\??)?$/i"],
 					"msg" => [
 						"*" => [
 							[date("h:i:s A"), []]
 						]
 					]
 				],
+
 			"q2" => 
 				[
 					"tr" => "*",
-					"re" => ["/what\s{3,}day(\sis (it)?)?/i"],
+					"re" => ["/^((wh)a?t)\s{1,3}day\s?(is\s?(it)?\s?(to?m?m?or?ow?)\??)?$/i"],
 					"msg" => [
 						"*" => [
-							[date("l"), []]
+							["Tommorow is ".date("l", time()+3600*24), []]
 						]
 					]
-				]
+				],
+
+			"q2" => 
+				[
+					"tr" => "*",
+					"re" => ["/^((wh)a?t)\s{1,3}day\s?(is\s?(it)?\s?(ye?s?te?rday?)\??)?$/i"],
+					"msg" => [
+						"*" => [
+							["Yesterday is ".date("l", time()-3600*24), []]
+						]
+					]
+				],
+
+			"q3" => 
+				[
+					"tr" => "*",
+					"re" => ["/^((wh)a?t)\s{1,3}day\s?(is\s?(it)?\s?(today)?\??)?$/i"],
+					"msg" => [
+						"*" => [
+							["Today is ".date("l"), []]
+						]
+					]
+				],
 		];
 	}
 

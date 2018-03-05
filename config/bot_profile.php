@@ -2,7 +2,7 @@
 $cred = include "bot.cred";
 return [
 
-	"lang_1" => "ID",
+	"lang_1" => "EN",
 	"lang_2" => "EN",
 	"lang_3" => "JP",
 
