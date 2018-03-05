@@ -1,6 +1,6 @@
 <?php
 
-namespace Lang\ID\Questions;
+namespace Lang\EN\Questions;
 
 class Questions
 {
@@ -16,46 +16,25 @@ class Questions
 
 	public function buildResponse()
 	{
-		$indoDay = [
-			"Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu"
-		];
-
-		$indoMonth = [
-			"Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"
-		];
 
 		$this->responseMessages = [
 			"q1" => 
 				[
 					"tr" => "*",
-					"re" => ["/ja?m\s{1,3}(be?ra?(pa?)?)/i", "/se?ka?ra?n?g\s{1,3}ja?m\s{1,3}be?ra?(pa?)?/i"],
+					"re" => ["/what\s{3,}ti?me(\sis (it)?)?/i"],
 					"msg" => [
 						"*" => [
-							["Sekarang jam ".date("h:i:s A")." :short_nickname", [":l=short_nickname"]],
-							["Jam ".date("h:i:s A")]
+							[date("h:i:s A"), []]
 						]
 					]
 				],
-
 			"q2" => 
 				[
 					"tr" => "*",
-					"re" => ["/a?pa\s{1,3}ka?ba?r/i", "/g?ima?na?\s{1,3}ka?ba?r(nya)?/i"],
+					"re" => ["/what\s{3,}day(\sis (it)?)?/i"],
 					"msg" => [
 						"*" => [
-							["Baik :short_nickname, kamu gimana?", [":l=short_nickname"]],
-							["Sehat :short_nickname, kamu apa kabar?", [":l=short_nickname"]]
-						]
-					]
-				],
-
-			"q3" =>
-				[
-					"tr" => "*",
-					"re" => ["/ha?ri?\s{1,3}apa?\s{1,3}se?ka?ra?ng/i"],
-					"msg" => [
-						"*" => [
-							["Sekarang hari ".$indoDay[date("n")]]
+							[date("l"), []]
 						]
 					]
 				]

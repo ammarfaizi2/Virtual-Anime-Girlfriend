@@ -234,10 +234,11 @@ class Greetings
 			"g9" =>
 				[
 					"tr" => "*",
-					"re" => ["/^ha?lo$/i", "/^ha?lo\s.{3,10}/i"],
+					"re" => ["/^h?alo$/i", "/^ha?lo\s.{3,10}/i"],
 					"msg" => [
 						"*" => [
-							["Halo juga :short_nickname", [":l=short_nickname"]]
+							["Halo juga :short_nickname", [":l=short_nickname"]],
+							["Alo juga"]
 						]
 					]
 				]
@@ -307,9 +308,7 @@ class Greetings
 					return $val[rand(0, count($val) - 1)];
 				}
 			} elseif ($k[0] === "*") {
-				if (in_array($now, range($k[0], $k[1]))) {
-					return $val[rand(0, count($val) - 1)];
-				}
+				return $val[rand(0, count($val) - 1)];
 			}
 		}
 	}
