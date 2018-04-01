@@ -17,7 +17,17 @@ class Greetings
 	public function buildResponse()
 	{
 		$this->responseMessages = [
-			
+			"g1" => 
+				[
+					"tr" => "*",
+					"re" => ["/go{0,3}d\s{1,3}mo?rn(i?ng)?/i"],
+					"msg" => [
+						"*" => [
+							["Good morning :nickname!", [":=nickname"]],
+							["Good morning :nickname, have a nice day!", [":=nickname"]],
+						]
+					]
+				],
 		];
 	}
 
@@ -81,8 +91,10 @@ class Greetings
 			$k = explode("-", $k);
 			if (count($k) === 2) {
 				if (in_array($now, range($k[0], $k[1]))) {
-					return $val[count($val) - 1];
+					return $val[rand(0, count($val) - 1)];
 				}
+			} elseif ($k[0] === "*") {
+				return $val[rand(0, count($val) - 1)];
 			}
 		}
 	}

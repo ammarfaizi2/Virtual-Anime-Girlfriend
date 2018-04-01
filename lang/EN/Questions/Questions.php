@@ -24,7 +24,7 @@ class Questions
 					"re" => ["/^((wh)a?t)\s{1,3}time\s?(is\s(it)?\??)?$/i"],
 					"msg" => [
 						"*" => [
-							[date("h:i:s A"), []]
+							["The time is ".date("h:i:s A"), []]
 						]
 					]
 				],
@@ -54,7 +54,7 @@ class Questions
 			"q3" => 
 				[
 					"tr" => "*",
-					"re" => ["/^((wh)a?t)\s{1,3}day\s?(is\s?(it)?\s?(today)?\??)?$/i"],
+					"re" => ["/^((wh)a?t)\s{1,3}day\s?(is\s?(it)?\s?(to?da?y)?\??)?$/i"],
 					"msg" => [
 						"*" => [
 							["Today is ".date("l"), []]
